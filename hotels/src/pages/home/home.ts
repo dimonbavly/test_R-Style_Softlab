@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { HotelsPage } from '../hotels/hotels';
 
 @Component({
   selector: 'page-home',
@@ -8,7 +9,9 @@ import { NavController } from 'ionic-angular';
 export class HomePage {
 
   constructor(public navCtrl: NavController) {
-
   }
 
+  openHotelsPage(): void {
+    this.navCtrl.push(HotelsPage);
+  }
 }
