@@ -1,3 +1,4 @@
+import { Ihotel } from './models/hotels.model';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
@@ -6,15 +7,7 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'hotels.html'
 })
 export class HotelsPage {
-  hotels: Array<{
-    imageUrl: string,
-    title: string,
-    description: string,
-    roomCost: number,
-    hasParking: boolean,
-    address: string,
-    phone: string
-  }>;
+  hotels: Ihotel[];
 
   constructor(public navCtrl: NavController) {
     this.hotels = [
