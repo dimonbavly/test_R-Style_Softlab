@@ -8,6 +8,18 @@
 </ion-header>
 
 <ion-content>
+  <ion-item>
+    <ion-label>Цена от</ion-label>
+    <ion-input type="number"></ion-input>
+  </ion-item> 
+  <ion-item>
+    <ion-label>Цена до</ion-label>
+    <ion-input type="number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Наличие парковки обязательно</ion-label>
+    <ion-checkbox color="dark"></ion-checkbox>
+  </ion-item>
   <ion-list>
     <button ion-item *ngFor="let hotel of hotels">
       <ion-avatar item-start>
