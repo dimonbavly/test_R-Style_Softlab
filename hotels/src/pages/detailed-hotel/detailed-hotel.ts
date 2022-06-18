@@ -1,3 +1,4 @@
+import { Ihotel } from './../hotels/models/hotels.model';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
@@ -15,6 +16,7 @@ import { NavController, NavParams } from 'ionic-angular';
 export class DetailedHotelPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    let hotel: Ihotel = navParams.get('hotel');
   }
 
   ionViewDidLoad() {

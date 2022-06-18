@@ -1,6 +1,7 @@
 import { Ihotel } from './models/hotels.model';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { DetailedHotelPage } from '../detailed-hotel/detailed-hotel';
 
 @Component({
   selector: 'page-hotels',
@@ -66,5 +67,9 @@ export class HotelsPage {
         phone: '8 (495) 123-45-678'
       }
     ]
+  }
+
+  openDetailedHotel(hotel: Ihotel): void {
+    this.navCtrl.push(DetailedHotelPage, {hotel});
   }
 }
