@@ -28,6 +28,42 @@ export class HotelsPage {
         hasParking: true,
         address: 'Москва, пр-т Мира, 150',
         phone: '8 (495) 234-12-06'
+      },
+      {
+        imageUrl: 'https://avatars.mds.yandex.net/i?id=18580a9c4b7f6aefd75b6329158406ec-5234362-images-thumbs&n=13&exp=1',
+        title: 'А',
+        description: 'Гостиница А',
+        roomCost: 1000,
+        hasParking: false,
+        address: 'Moscow',
+        phone: '8 (495) 123-45-678'
+      },
+      {
+        imageUrl: 'https://avatars.mds.yandex.net/i?id=de78248eab75bc86958fcdfc01747224-5480389-images-thumbs&n=13&exp=1',
+        title: 'Б',
+        description: 'Гостиница Б',
+        roomCost: 10000,
+        hasParking: true,
+        address: 'Moscow',
+        phone: '8 (495) 123-45-678'
+      },
+      {
+        imageUrl: 'https://avatars.mds.yandex.net/i?id=2c4f96a460697d4b0d9174c468c997bb-5480282-images-thumbs&n=13&exp=1',
+        title: 'С',
+        description: 'Гостиница С',
+        roomCost: 4999,
+        hasParking: false,
+        address: 'Moscow',
+        phone: '8 (495) 123-45-678'
+      },
+            {
+        imageUrl: 'https://avatars.mds.yandex.net/i?id=9f21a2a3f471c26b1a78ed11519a9817-5228318-images-thumbs&n=13&exp=1',
+        title: 'D',
+        description: 'Гостиница D',
+        roomCost: 5001,
+        hasParking: true,
+        address: 'Moscow',
+        phone: '8 (495) 123-45-678'
       }
     ]
   }
