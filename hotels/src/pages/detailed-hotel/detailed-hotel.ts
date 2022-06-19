@@ -14,9 +14,10 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'detailed-hotel.html',
 })
 export class DetailedHotelPage {
+  hotel: Ihotel;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    let hotel: Ihotel = navParams.get('hotel');
+    this.hotel= navParams.get('hotel');
   }
 
   ionViewDidLoad() {
