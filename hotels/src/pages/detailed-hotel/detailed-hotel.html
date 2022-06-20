@@ -7,12 +7,53 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{hotel.title}}</ion-title>
+    <ion-title>Подробное описание</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <ion-list class="hotel-parameters">
+    <ion-list-header>{{hotel.title}}</ion-list-header>
 
+    <ion-item>
+      <ion-card>
+        <ion-card-content>
+          <img class="hotel-image" src={{hotel.imageUrl}}/>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+
+    <ion-item class="hotel-description">
+      <ion-label>Описание: 
+        <p>{{hotel.description}}</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item class="hotel-room-price">
+      <ion-label>Цена: 
+        <p>{{hotel.roomCost}}</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item class="hotel-parking-availability">
+      <ion-label>Есть парковка: 
+        <p>{{hotel.hasParking ? 'есть': 'нет'}}</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item class="hotel-address">
+      <ion-label>Адрес: 
+        <address>{{hotel.address}}</address>
+      </ion-label>
+    </ion-item>
+
+    <ion-item class="hotel-phone">
+      <ion-label>Телефон: 
+        <a href="tel: {{hotel.phone}}">{{hotel.phone}}</a>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
 </ion-content>
