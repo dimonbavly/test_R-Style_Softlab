@@ -1,8 +1,8 @@
-import { Ihotel } from './models/hotels.model';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { DetailedHotelPage } from '../detailed-hotel/detailed-hotel';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Ihotel } from './models/hotels.model';
 
 @Component({
   selector: 'page-hotels',
@@ -72,15 +72,26 @@ export class HotelsPage {
     ]
   }
 
+  filterHotels(hotel: Ihotel): boolean {
+    if (this.hotelsForm.get('hasParking').value === true && hotel.hasParking === false) return false;
+    if (this.hotelsForm.get('priceFrom').value !== '') {
+      if (this.hotelsForm.get('priceFrom').value > hotel.roomCost) return false;
+    };
+    if (this.hotelsForm.get('priceTo').value !== '') {
+      if (this.hotelsForm.get('priceTo').value < hotel.roomCost) return false;
+    };
+    return true;
+  }
+
   openDetailedHotel(hotel: Ihotel): void {
-    this.navCtrl.push(DetailedHotelPage, {hotel});
+    this.navCtrl.push(DetailedHotelPage, { hotel });
   }
 
   private initForm(): void {
     this.hotelsForm = this._fb.group({
       priceFrom: [''],
       priceTo: [''],
-      parkingAvailable: [false],
+      hasParking: [false],
     });
   }
 }
