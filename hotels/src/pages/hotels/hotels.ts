@@ -2,6 +2,7 @@ import { Ihotel } from './models/hotels.model';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { DetailedHotelPage } from '../detailed-hotel/detailed-hotel';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'page-hotels',
@@ -9,8 +10,10 @@ import { DetailedHotelPage } from '../detailed-hotel/detailed-hotel';
 })
 export class HotelsPage {
   hotels: Ihotel[];
+  hotelsForm?: FormGroup;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private _fb: FormBuilder) {
+    this.initForm();
     this.hotels = [
       {
         imageUrl: 'https://img.gazeta.ru/files3/837/4860837/hotel-pic668-668x444-62402.jpg',
@@ -71,5 +74,13 @@ export class HotelsPage {
 
   openDetailedHotel(hotel: Ihotel): void {
     this.navCtrl.push(DetailedHotelPage, {hotel});
+  }
+
+  private initForm(): void {
+    this.hotelsForm = this._fb.group({
+      priceFrom: [''],
+      priceTo: [''],
+      parkingAvailable: [false],
+    });
   }
 }
