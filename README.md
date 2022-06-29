@@ -14,7 +14,16 @@ npm install -g ionic@3.20.0
 
 3. В корне проекта выполнить инициализацию пакетов npm
 npm install
+***
+<details><summary>Установить всё cразу</summary>
 
+```
+nvm install 8.11.3 && npm install -g cordova@7.1.0 && npm install -g ionic@3.20.0 && cd hotels && npm install
+
+```
+</details>
+
+***
 4. Запуск локального сервера для работа приложения в браузере
 ionic serve
 Для просмотра приложения в процессе разработки удобно использовать Google Chrome с включенной опцией "Toggle device toolbar" (см. скрин).
