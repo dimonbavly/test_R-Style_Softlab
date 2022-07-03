@@ -2,3 +2,5 @@ hotels/.sourcemaps/
 hotels/node_modules/
 hotels/www/
 hotels/package-lock.json
+hotels/.vscode/
+hotels/typings/

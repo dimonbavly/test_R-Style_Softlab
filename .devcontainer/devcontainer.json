@@ -24,7 +24,8 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"pinkpotato.ionic-essentials"
+				"pinkpotato.ionic-essentials",
+				"ionic.ionic"
 			]
 		}
 	}
