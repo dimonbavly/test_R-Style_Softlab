@@ -1,19 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { DetailedHotelPage } from '../detailed-hotel/detailed-hotel';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Ihotel } from './models/hotels.model';
+import { Observable } from 'rxjs';
+import { map, debounceTime, startWith} from 'rxjs/operators';
+import { of } from 'rxjs/observable/of';
 
 @Component({
   selector: 'page-hotels',
   templateUrl: 'hotels.html'
 })
-export class HotelsPage {
+export class HotelsPage implements OnInit{
   hotels: Ihotel[];
   hotelsForm?: FormGroup;
+  hotelsFiltered: Observable<Ihotel[]>;
 
   constructor(public navCtrl: NavController, private _fb: FormBuilder) {
-    this.initForm();
     this.hotels = [
       {
         imageUrl: 'https://img.gazeta.ru/files3/837/4860837/hotel-pic668-668x444-62402.jpg',
@@ -69,7 +72,9 @@ export class HotelsPage {
         address: 'Moscow',
         phone: '8 (495) 123-45-678'
       }
-    ]
+    ];
+    this.initForm();
+    this.updateHotels();
   }
 
   filterHotels(hotel: Ihotel): boolean {
@@ -86,6 +91,23 @@ export class HotelsPage {
   openDetailedHotel(hotel: Ihotel): void {
     this.navCtrl.push(DetailedHotelPage, { hotel });
   }
+
+  updateHotels(): void {
+    this.hotelsFiltered = this.hotelsForm.valueChanges.pipe(
+      debounceTime(500),
+      map(
+        (forms) => {
+          let res = this.hotels.filter(h => this.filterHotels(h));
+          return res;
+      }),
+      startWith(this.hotels),
+    );
+  }
+
+
+  ngOnInit(): void {
+  }
+
 
   private initForm(): void {
     this.hotelsForm = this._fb.group({

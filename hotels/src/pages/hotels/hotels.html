@@ -22,9 +22,10 @@
       <ion-checkbox formControlName="hasParking" color="dark"></ion-checkbox>
     </ion-item>
   </form>
+
   <ion-list>
-    <ng-container *ngFor="let hotel of hotels">
-      <button *ngIf="filterHotels(hotel)" ion-item (click)="openDetailedHotel(hotel)">
+    <ng-container *ngFor="let hotel of hotelsFiltered | async">
+      <button ion-item (click)="openDetailedHotel(hotel)">
         <ion-avatar item-start>
           <img src="{{hotel.imageUrl}}">
         </ion-avatar>
@@ -32,5 +33,6 @@
         <p>{{hotel.address}}</p>
       </button>
     </ng-container>
+    <p *ngIf="(hotelsFiltered | async).length < 1">Ничего не найдено</p>
   </ion-list>
 </ion-content>
